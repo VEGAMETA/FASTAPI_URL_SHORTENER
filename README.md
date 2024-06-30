@@ -9,7 +9,7 @@ POST `http://ip:port/shorten/`
 
 Payload `{"url": "foo.bar"}`
 
-Response `{"shorte_url": "rAnDv"}`
+Response `{"short_url": "rAnDv"}`
 
 To get redirection to the original site you just type it in
 
