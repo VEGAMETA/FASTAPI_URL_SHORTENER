@@ -2,6 +2,10 @@
 
 This is a simple shortener for urls with redirection statistics
 
+## Showcase
+![Url shortener start page](showcase/index.png)
+![Url stats for redirections of short urls](showcase/stats.png)
+
 ### Installing 
 
 ```shell
