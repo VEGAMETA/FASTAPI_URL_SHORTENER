@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    width: 50%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.stats-container {
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+br {
+    display: block;
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="url"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 0px solid #ccc;
+    background-color: #e1e8f3;
+    border-radius: 4px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.result {
+    margin-top: 20px;
+    display: none;
+}
+
+.link-container {
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 28%;
+    width: max-content;
+    background-color: #e1e8f3;
+}
+
+.short-url {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #1f1f1f;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.short-url:hover {
+    color: #007bff;
+}
+
+.copy-button {
+    padding: 8px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    border-radius: 18px;
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}

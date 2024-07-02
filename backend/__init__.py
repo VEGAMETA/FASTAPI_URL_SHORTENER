@@ -1,3 +1,4 @@
 from .database import database
-from .app import app
+from .middlewares import *
+from .app import *
 from .routes import *

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>URL Stats</title>
+        <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+        <link rel="stylesheet" href="/static/styles/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>URL Stats</h1>
+            <form id="stats-form">
+                <label for="short-link">Short Link:</label>
+                <br>
+                <input type="url" name="short-link" id="short-link" spellcheck="false" required>
+                <br>
+                <button type="submit">Get Stats</button>
+            </form>
+            <div class="result" id="result">
+                <div class="stats-container">
+                    <p><strong>Redirect Count:</strong> <span id="redirect-count"></span></p>
+                    <p><strong>Created At:</strong> <span id="created-at"></span></p>
+                    <p><strong>Last Redirected At:</strong> <span id="last-redirected-at"></span></p>
+                </div>
+            </div>
+            <div class="toast" id="toast">Failed to fetch stats!</div>
+        </div>
+        <script src="/static/scripts/stats.js"></script>
+    </body>
+</html>

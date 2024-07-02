@@ -3,8 +3,11 @@ import random
 from urllib.parse import urlparse
 
 from fastapi import HTTPException
+from sqlalchemy import select
 
-from .base import *
+from backend import api_v1_app, database
+from backend.models import URL
+from backend.schemas import URLShortenRequest
 
 
 async def get_short_url(k: int = 4) -> str:
@@ -13,12 +16,14 @@ async def get_short_url(k: int = 4) -> str:
     if the URL already exists, it generates a new one
     """
     short_url = "".join(random.choices(string.ascii_letters + string.digits, k=k))
-    if await get_db_short_url(short_url):
+    query = select(URL).where(URL.short_url == short_url)
+    db_url = await database.fetch_one(query)
+    if db_url:
         return await get_short_url(k + 1)
     return short_url
 
 
-@app.post(
+@api_v1_app.post(
     "/shorten",
     responses={
         400: {"description": "URL too long"},

@@ -1,7 +1,7 @@
 from sqlalchemy import Engine, create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
 from databases import Database
-from api.models import Base
+from backend.models import Base
 
 DATABASE_URL = "sqlite:///./database/links.sqlite"
 

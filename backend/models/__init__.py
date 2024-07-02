@@ -1,3 +1,3 @@
 from .base import *
 from .url import *
-from .click import *
+from .stat import *

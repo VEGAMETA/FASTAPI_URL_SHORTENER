@@ -1,9 +1,11 @@
 from fastapi import HTTPException
+from sqlalchemy import select
 
-from .base import *
+from backend import api_v1_app, database
+from backend.models import URL, StatURL
 
 
-@app.get(
+@api_v1_app.get(
     "/stats/{short_url}",
     responses={404: {"description": "URL not found"}},
     response_model=dict,
@@ -12,7 +14,8 @@ async def get_stats(short_url: str) -> dict:
     """
     Get stats for a short URL
     """
-    db_url = await get_db_short_url(short_url)
+    query = select(URL).where(URL.short_url == short_url)
+    db_url = await database.fetch_one(query)
     if db_url is None:
         raise HTTPException(status_code=404, detail="URL not found")
     redirect_count_query = select(StatURL).where(StatURL.url_id == db_url.id)
