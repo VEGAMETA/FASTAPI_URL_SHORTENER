@@ -12,10 +12,8 @@ async def lifespan(app: FastAPI):
     await database.disconnect()
 
 
-api_v1_app = FastAPI(root_path="/v1")
-api_app = FastAPI(root_path="/api")
-api_app.mount("/v1", api_v1_app)
+api_v1_app = FastAPI(root_path="/api/v1")
 
 app = FastAPI(lifespan=lifespan, title="URL Shortener API", version="0.1.0")
 app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
-app.mount("/api", api_app)
+app.mount("/api/v1", api_v1_app)
