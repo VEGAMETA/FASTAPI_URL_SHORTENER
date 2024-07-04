@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 from fastapi import HTTPException
 from sqlalchemy import select
 
-from backend import api_v1_app, database
+from backend import api_v1_router, database
 from backend.models import URL
 from backend.schemas import URLShortenRequest
 
@@ -23,7 +23,7 @@ async def get_short_url(k: int = 4) -> str:
     return short_url
 
 
-@api_v1_app.post(
+@api_v1_router.post(
     "/shorten",
     responses={
         400: {"description": "URL too long"},

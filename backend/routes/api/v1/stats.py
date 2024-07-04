@@ -1,11 +1,11 @@
 from fastapi import HTTPException
 from sqlalchemy import select
 
-from backend import api_v1_app, database
+from backend import api_v1_router, database
 from backend.models import URL, StatURL
 
 
-@api_v1_app.get(
+@api_v1_router.get(
     "/stats/{short_url}",
     responses={404: {"description": "URL not found"}},
     response_model=dict,
